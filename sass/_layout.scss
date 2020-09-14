@@ -17,13 +17,15 @@
   display: flex;
 
   .left {
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-right: 1rem;
+    margin-left: 1rem;
     flex-direction: row;
     flex-wrap: wrap;
     flex: 1 0 0;
     display: flex;
   }
+
   .right {
     background-color: $red-color;
     content: '';
@@ -31,72 +33,67 @@
   }
 }
 
-.details {
+.column {
   display: flex;
   margin-top: 1rem;
   margin-left: 1rem;
   flex: 1 1 auto;
   width: 100%;
 
-  .date {
-    flex: 1 0 auto;
+  &__date {
+    flex: 0 0 auto;
   }
 
-  .circle {
-    flex: 1 0 auto;
-    background-color: $grey-color;
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
-    margin-top: 0.2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    position: relative;
+  &__figure {
+    flex-direction: column;
+    display: flex;
+
+    &__circle {
+      flex: 0 0 auto;
+
+      background-color: $grey-color;
+      height: 1.5rem;
+      width: 1.5rem;
+      border-radius: 50%;
+      margin-top: 0.2rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    &__divider {
+      height: 100%;
+      width: 2px;
+      background: black;
+      left: 50%;
+      align-self: center;
+      margin-top: 1rem;
+      margin-bottom: -1rem;
+    }
   }
 
-  .circle:first-child {
-    margin-top: 0;
-  }
-
-  .circle::before {
-    border: 2px solid black;
-    display: block;
-    left: 50%;
-    position: absolute;
-    content: '';
-
-    height: 11rem;
-    top: -11.2rem;
-  }
-
-  .card {
+  &__card {
     display: flex;
     flex-flow: column;
     margin-right: 1rem;
 
-    .paragraph {
+    &__paragraph {
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
 
-    .box {
+    &__box {
       background-color: $grey-color;
       align-self: flex-end;
       width: 12rem;
       height: 2.5rem;
-      flex: 1 0 auto;
     }
   }
 
-  .card.details:not(:last-of-type) {
+  &__card:not(:last-of-type) {
     margin-bottom: 1rem;
   }
 }
 
-.details:not(:last-of-type) {
+.column:not(:last-of-type) {
   margin-bottom: 1rem;
-}
-
-.details:first-child .circle::before {
-  display: none;
 }
